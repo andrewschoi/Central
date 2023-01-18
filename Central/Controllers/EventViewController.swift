@@ -40,6 +40,7 @@ class EventViewController: ObservableObject {
     }
     
     func incrementVote(name: String) {
+        print("test")
         let url = URL(string: "https://ud4k4olkrg.execute-api.us-east-2.amazonaws.com/prod/upvote")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

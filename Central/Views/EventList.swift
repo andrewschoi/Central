@@ -23,10 +23,22 @@ struct EventList: View {
                     .padding(.top, 100)
                 } else {
                     List {
-                        ForEach(viewModel.events, id: \.name) { event in
+                        ForEach(viewModel.events.sorted(by: {$0.upvotes > $1.upvotes}), id: \.name) { event in
                             NavigationLink(destination: EventDetail(event: event)) {
                                 EventRow(event: event)
                             }
+                            
+                            Button(action: {
+                                viewModel.incrementVote(name: event.name)
+                                viewModel.fetchData()
+                            }) {
+                                HStack {
+                                    Image(systemName: "arrow.up")
+                                    Text("Upvote")
+                                }
+                            }
+                            .foregroundColor(.blue)
+                            .padding(.horizontal, 20)
                         }
                     }
                     .listRowInsets(EdgeInsets())
@@ -53,6 +65,7 @@ struct EventList: View {
     }
         
 }
+
 
 
 

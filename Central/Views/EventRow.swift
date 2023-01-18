@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EventRow: View {
     var event: Event
+    @ObservedObject var viewController = EventViewController()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -43,7 +44,16 @@ struct EventRow: View {
                 .foregroundColor(.primary)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
-
+            
+            HStack {
+                Image(systemName: "arrow.up")
+                    .foregroundColor(.secondary)
+                Text(event.upvotes)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
+            .padding(.horizontal, 20)
         }
         .background(Color.white)
         .cornerRadius(10)
@@ -54,8 +64,10 @@ struct EventRow: View {
 }
 
 
+
+
 struct EventRow_Previews: PreviewProvider {
     static var previews: some View {
-        EventRow(event: Event(name: "andrew", date: "12/15/2002", location: "ithaca", description: "fun party", image: "https://central-event-images.s3.us-east-2.amazonaws.com/Bsadsada", upvotes: "0"))
+        EventRow(event: Event(name: "Test", date: "12/15/2002", location: "ithaca", description: "fun party", image: "https://central-event-images.s3.us-east-2.amazonaws.com/Bsadsada", upvotes: "0"))
     }
 }
