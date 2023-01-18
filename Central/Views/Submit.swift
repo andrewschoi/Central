@@ -4,9 +4,8 @@
 //
 //  Created by andrew choi on 1/16/23.
 //
-
 import SwiftUI
-
+import UIKit
 
 struct Submit: View {
     @State var name = ""
@@ -20,40 +19,51 @@ struct Submit: View {
     @ObservedObject var viewController = SubmitViewController()
     
     var body: some View {
-        
-        
-        VStack(alignment: .leading) {
-            Text("Event Name:")
-            TextField("event name...", text: $name)
-            Text("Event Date:")
-            TextField("event date...", text: $date)
-            Text("Event Location:")
-            TextField("event location...", text: $location)
-            Text("Event Description:")
-            TextField("event description...", text: $description)
-            
-            Button(action: {
-                self.isShowPhotoLibrary = true
-            }) {
-                Text("show library")
+        NavigationView {
+            VStack(alignment: .leading) {
+                TextField("Event Name", text: $name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                TextField("Event Date", text: $date)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                TextField("Event Location", text: $location)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                TextField("Event Description", text: $description)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                HStack {
+                    Spacer()
+                    Button("Choose Image") {
+                        self.isShowPhotoLibrary = true
+                    }
+                    .sheet(isPresented: $isShowPhotoLibrary) {
+                        ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
+                    }
+                }
+                .padding()
+                
+                HStack {
+                    Spacer()
+                    Button("Submit") {
+                        self.viewController.submitData(name: self.name, date: self.date, location: self.location, description: self.description, image: self.image)
+                    }
+                }
+                .padding()
             }
-            .sheet(isPresented: $isShowPhotoLibrary) {
-                ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
-            }
-            
-            Button("submit", action: {
-                self.viewController.submitData(name: self.name, date: self.date, location: self.location, description: self.description, image: self.image)
-            })
-            
-        }.onDisappear {
+            .navigationBarTitle("New Event")
+        }
+        .onDisappear {
             viewController.resetSuccess()
         }
-        
-        Text(viewController.success ? "success" : "")
-        
-        
+        .alert(isPresented: $viewController.success) {
+            Alert(title: Text("Success"), message: Text("Event has been submitted"), dismissButton: .default(Text("OK")))
+        }
     }
 }
+
 
 struct Submit_Previews: PreviewProvider {
     static var previews: some View {
