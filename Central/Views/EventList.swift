@@ -11,29 +11,51 @@ struct EventList: View {
     @ObservedObject var viewModel = EventViewController()
     
     var body: some View {
-        
         NavigationView {
-            ScrollView {
-                NavigationLink {
-                    Submit()
-                } label: {
-                    Text("add a event")
-                }
-                ForEach (viewModel.events, id: \.name) {
-                    event in
-                    NavigationLink {
-                        EventDetail(event: event)
-                    } label: {
-                        EventRow(event: event)
+            VStack {
+                if viewModel.events.isEmpty {
+                    VStack {
+                        Image(systemName: "exclamationmark.triangle")
+                        Text("No events found.")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
                     }
-                    Divider()
+                    .padding(.top, 100)
+                } else {
+                    List {
+                        ForEach(viewModel.events, id: \.name) { event in
+                            NavigationLink(destination: EventDetail(event: event)) {
+                                EventRow(event: event)
+                            }
+                        }
+                    }
+                    .listRowInsets(EdgeInsets())
                 }
-            }.onAppear {
+                Spacer()
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: Submit()) {
+                        Text("Add Event")
+                            .foregroundColor(.white)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
+                    Spacer()
+                }
+                .padding(.bottom, 20)
+            }
+            .onAppear {
                 viewModel.fetchData()
             }
         }
     }
+        
 }
+
+
+
 
 struct EventList_Previews: PreviewProvider {
     static var previews: some View {
