@@ -39,4 +39,26 @@ class EventViewController: ObservableObject {
         task.resume()
     }
     
+    func incrementVote(name: String) {
+        let url = URL(string: "https://ud4k4olkrg.execute-api.us-east-2.amazonaws.com/prod/upvote")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let body = ["name": name]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+        
+        let task = URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let _ = data, let _ = response as? HTTPURLResponse else {
+                return
+            }
+        }
+        task.resume()
+    }
+    
 }

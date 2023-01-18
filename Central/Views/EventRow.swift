@@ -56,6 +56,6 @@ struct EventRow: View {
 
 struct EventRow_Previews: PreviewProvider {
     static var previews: some View {
-        EventRow(event: Event(name: "andrew", date: "12/15/2002", location: "ithaca", description: "fun party", image: "https://central-event-images.s3.us-east-2.amazonaws.com/Bsadsada"))
+        EventRow(event: Event(name: "andrew", date: "12/15/2002", location: "ithaca", description: "fun party", image: "https://central-event-images.s3.us-east-2.amazonaws.com/Bsadsada", upvotes: "0"))
     }
 }

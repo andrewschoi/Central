@@ -13,4 +13,5 @@ struct Event: Codable {
     var location: String
     var description: String
     var image: String
+    var upvotes: String
 }
