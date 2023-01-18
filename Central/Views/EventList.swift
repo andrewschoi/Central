@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct EventList: View {
+    @ObservedObject var viewModel = EventViewController()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationView {
+            ScrollView {
+                NavigationLink {
+                    Submit()
+                } label: {
+                    Text("add a event")
+                }
+                ForEach (viewModel.events, id: \.name) {
+                    event in
+                    NavigationLink {
+                        EventDetail(event: event)
+                    } label: {
+                        EventRow(event: event)
+                    }
+                    Divider()
+                }
+            }.onAppear {
+                viewModel.fetchData()
+            }
+        }
     }
 }
 

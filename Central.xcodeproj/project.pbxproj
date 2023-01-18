@@ -14,6 +14,14 @@
 		FE3F419D297600B700598949 /* CentralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F419C297600B700598949 /* CentralTests.swift */; };
 		FE3F41A7297600B700598949 /* CentralUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F41A6297600B700598949 /* CentralUITests.swift */; };
 		FE3F41A9297600B700598949 /* CentralUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F41A8297600B700598949 /* CentralUITestsLaunchTests.swift */; };
+		FE3F41B92976011000598949 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F41B82976011000598949 /* EventList.swift */; };
+		FE3F41BB2976011E00598949 /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F41BA2976011E00598949 /* EventRow.swift */; };
+		FE3F41BD2976012500598949 /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F41BC2976012500598949 /* EventDetail.swift */; };
+		FE3F41BF2976015C00598949 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F41BE2976015C00598949 /* Event.swift */; };
+		FE3F41C429760D1300598949 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F41C329760D1300598949 /* EventViewController.swift */; };
+		FE3F41CC297626E400598949 /* Submit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F41CB297626E400598949 /* Submit.swift */; };
+		FE3F41D02976397700598949 /* SubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F41CF2976397700598949 /* SubmitViewController.swift */; };
+		FE3F41D229772ED900598949 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3F41D129772ED900598949 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		FE3F41A2297600B700598949 /* CentralUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CentralUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE3F41A6297600B700598949 /* CentralUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralUITests.swift; sourceTree = "<group>"; };
 		FE3F41A8297600B700598949 /* CentralUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FE3F41B82976011000598949 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
+		FE3F41BA2976011E00598949 /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
+		FE3F41BC2976012500598949 /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
+		FE3F41BE2976015C00598949 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		FE3F41C329760D1300598949 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		FE3F41CB297626E400598949 /* Submit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submit.swift; sourceTree = "<group>"; };
+		FE3F41CF2976397700598949 /* SubmitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
+		FE3F41D129772ED900598949 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,9 @@
 				FE3F418B297600B400598949 /* CentralApp.swift */,
 				FE3F418D297600B400598949 /* ContentView.swift */,
 				FE3F418F297600B700598949 /* Assets.xcassets */,
+				FE3F41C029760CDB00598949 /* Controllers */,
+				FE3F41B7297600FD00598949 /* Model */,
+				FE3F41B5297600DE00598949 /* Views */,
 				FE3F4191297600B700598949 /* Preview Content */,
 			);
 			path = Central;
@@ -125,6 +144,35 @@
 				FE3F41A8297600B700598949 /* CentralUITestsLaunchTests.swift */,
 			);
 			path = CentralUITests;
+			sourceTree = "<group>";
+		};
+		FE3F41B5297600DE00598949 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FE3F41B82976011000598949 /* EventList.swift */,
+				FE3F41BA2976011E00598949 /* EventRow.swift */,
+				FE3F41BC2976012500598949 /* EventDetail.swift */,
+				FE3F41CB297626E400598949 /* Submit.swift */,
+				FE3F41D129772ED900598949 /* ImagePicker.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FE3F41B7297600FD00598949 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE3F41BE2976015C00598949 /* Event.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE3F41C029760CDB00598949 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FE3F41C329760D1300598949 /* EventViewController.swift */,
+				FE3F41CF2976397700598949 /* SubmitViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +305,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE3F41B92976011000598949 /* EventList.swift in Sources */,
 				FE3F418E297600B400598949 /* ContentView.swift in Sources */,
+				FE3F41CC297626E400598949 /* Submit.swift in Sources */,
+				FE3F41C429760D1300598949 /* EventViewController.swift in Sources */,
+				FE3F41D02976397700598949 /* SubmitViewController.swift in Sources */,
 				FE3F418C297600B400598949 /* CentralApp.swift in Sources */,
+				FE3F41BD2976012500598949 /* EventDetail.swift in Sources */,
+				FE3F41D229772ED900598949 /* ImagePicker.swift in Sources */,
+				FE3F41BF2976015C00598949 /* Event.swift in Sources */,
+				FE3F41BB2976011E00598949 /* EventRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
