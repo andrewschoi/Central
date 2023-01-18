@@ -24,7 +24,7 @@ struct Submit: View {
                 TextField("Event Name", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                TextField("Event Date", text: $date)
+                TextField("Event Date (mm-dd format)", text: $date)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 TextField("Event Location", text: $location)
