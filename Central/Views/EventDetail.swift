@@ -54,7 +54,7 @@ struct EventDetail: View {
                     image
                         .resizable()
                         .scaledToFill()
-                        .frame(height: 100)
+                        .frame(height: 300)
                         .cornerRadius(10)
                         .shadow(radius: 5)
                 } placeholder: {
